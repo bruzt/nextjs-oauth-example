@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const elementsRadius = '0.1rem';
+const elementsRadius = '0.3rem';
 
 export const Container = styled.div`
     min-height: 100vh;
@@ -23,14 +23,22 @@ export const Container = styled.div`
     }
 
     input {
-        height: 2.5rem;
+        height: 3rem;
 
         font-size: 1.5rem;
+        color: ${props => props.theme.color};
 
         border: 0;
         border-radius: ${elementsRadius};
         box-shadow: 1px 1px 0 1px #111;
+
         padding: 0 0.5rem;
+        background-color: ${props => props.theme.background};
+        filter: brightness(0.5);
+    }
+
+    form hr {
+        margin-top: 1rem;
     }
 
     button {
