@@ -23,11 +23,11 @@ export default function LoginPage() {
   }
 
   async function handleGoogleLogin() {
-    await signIn('google');
+    await signIn('google', { callbackUrl: 'http://localhost:3000/main' });
   }
 
   async function handleFacebbokLogin() {
-    await signIn('facebook');
+    await signIn('facebook', { callbackUrl: 'http://localhost:3000/main' });
   }
 
   return (
@@ -60,9 +60,10 @@ export default function LoginPage() {
         <div className="input-group">
           <label htmlFor="password">Senha:</label>
           <input
-            type="text"
+            type="password"
             id='password'
             placeholder='Digite sua senha'
+            title='No mínimo 6 dígitos'
             value={passwordState}
             onChange={(event) => setPassword(event.target.value)}
           />
@@ -71,6 +72,8 @@ export default function LoginPage() {
         <button type='submit'>
           Entrar
         </button>
+
+        <hr />
 
         <button
           type='button'
